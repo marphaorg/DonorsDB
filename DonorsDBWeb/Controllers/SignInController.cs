@@ -8,7 +8,6 @@ using Microsoft.Extensions.Logging;
 
 namespace DonorsDBUI.Controllers
 {
-    [Authorize(Policy = "")]
     public class SignInController : Controller
     {
         private readonly ILogger<SignInController> _logger;

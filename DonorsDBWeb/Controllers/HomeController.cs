@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace DonorsDBUI.Controllers
 {
-    [Authorize(Policy = "ShouldBeUserOnly")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

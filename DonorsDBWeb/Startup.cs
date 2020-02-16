@@ -28,29 +28,7 @@ namespace DonorsDBUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddMvc(obj =>
-            {
-                var policy = new AuthorizationPolicyBuilder()
-                    .RequireAuthenticatedUser()
-                    .Build();
-                obj.Filters.Add(new AuthorizeFilter(policy));
-            });
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme,
-            options =>
-            {
-                options.LoginPath = new PathString("/SignIn");
-                options.AccessDeniedPath = new PathString("/Home/denied");
-            });
-            services.AddAuthorization(options =>
-            {
-                options.AddPolicy("RequireAdminOnly", policy =>
-                      policy.RequireRole("Administrator"));
-                options.AddPolicy("RequireManagerOnly", policy =>
-                      policy.RequireRole("Manager", "Administrator"));
-                options.AddPolicy("ShouldBeUserOnly", policy =>
-                     policy.RequireRole("User", "Manager", "Administrator"));
-            });
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
