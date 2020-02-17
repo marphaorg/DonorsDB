@@ -1,19 +1,21 @@
 ﻿<Properties StartupConfiguration="{EB6401D1-5173-40F0-9FD4-F29FC5A57A35}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="DTO/DonationMethod.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DataLayer/Entities/Person.cs">
     <Files>
-      <File FileName="DTO/Role.cs" Line="3" Column="2" />
-      <File FileName="DTO/DonationType.cs" Line="9" Column="18" />
-      <File FileName="DTO/DonationMethod.cs" Line="9" Column="18" />
-      <File FileName="DTO/Donation.cs" Line="11" Column="9" />
-      <File FileName="DTO/Donor.cs" Line="1" Column="1" />
+      <File FileName="UI/appsettings.json" Line="14" Column="1" />
+      <File FileName="DataLayer/DonorsDBContext.cs" Line="25" Column="53" />
+      <File FileName="DataLayer/Entities/User.cs" Line="1" Column="1" />
+      <File FileName="DataLayer/Entities/Person.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="DonorsDB" expanded="True">
-            <Node name="DTO" expanded="True">
-              <Node name="Donation.cs" selected="True" />
+            <Node name="DataLayer" expanded="True">
+              <Node name="Entities" expanded="True">
+                <Node name="Person.cs" selected="True" />
+              </Node>
             </Node>
+            <Node name="DTO" expanded="True" />
             <Node name="UI" expanded="True" />
           </Node>
         </State>
