@@ -17,6 +17,9 @@ namespace DTO
         public Guid DonorID { get; set; }
         public Donor Donor { get; set; }
 
+        public Guid DonationForID { get; set; }
+        public Campaign DonationFor { get; set; }
+
         public Guid DonationRecognizedByID { get; set; }
         public User DonationRecognizedBy { get; set; }
 

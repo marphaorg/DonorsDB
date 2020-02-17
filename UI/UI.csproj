@@ -25,4 +25,11 @@
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Campaign\" />
+    <Folder Include="Views\Donation\" />
+    <Folder Include="Views\Donor\" />
+    <Folder Include="Views\User\" />
+    <Folder Include="Views\Report\" />
+  </ItemGroup>
 </Project>

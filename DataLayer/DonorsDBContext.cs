@@ -7,7 +7,7 @@ namespace DataLayer
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("DonorsDBContext");
+            optionsBuilder.UseSqlServer("Data Source=SQL5041.site4now.net;Initial Catalog=DB_9E3EC8_donorsdb;User Id=DB_9E3EC8_donorsdb_admin;Password=iamDb2020;");
         }
 
         public DbSet<User> Users { get; set; }
@@ -26,6 +26,12 @@ namespace DataLayer
                 .HasOne(r => r.DonationReviewedBy)
                 .WithMany(r => r.DonationsReviewed)
                 .HasForeignKey(r => r.DonationReviewedByID)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Donation>()
+                .HasOne(r => r.DonationFor)
+                .WithMany(r => r.Donations)
+                .HasForeignKey(r => r.DonationForID)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }
