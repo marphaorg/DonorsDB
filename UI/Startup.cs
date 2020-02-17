@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BusinessLayer;
+using BusinessLayer.Interfaces;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -29,7 +31,9 @@ namespace UI
         {
             services.AddControllersWithViews();
 
-            
+            services.AddTransient<IDonorService, DonorService>();
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IDonationService, DonationService>();
 
         }
 

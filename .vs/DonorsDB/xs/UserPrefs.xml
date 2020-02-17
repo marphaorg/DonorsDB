@@ -1,15 +1,22 @@
 ﻿<Properties StartupConfiguration="{EB6401D1-5173-40F0-9FD4-F29FC5A57A35}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="DataLayer/DonorsDBContext.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="BusinessLayer/UserService.cs">
     <Files>
       <File FileName="UI/appsettings.json" Line="10" Column="21" />
-      <File FileName="DataLayer/DonorsDBContext.cs" Line="14" Column="49" />
+      <File FileName="BusinessLayer/DonationService.cs" Line="1" Column="1" />
+      <File FileName="DTO/Person.cs" Line="1" Column="1" />
+      <File FileName="DTO/Donation.cs" Line="1" Column="1" />
+      <File FileName="DTO/User.cs" Line="1" Column="1" />
+      <File FileName="BusinessLayer/UserService.cs" Line="67" Column="22" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="DonorsDB" expanded="True">
-            <Node name="BusinessLayer" expanded="True" />
-            <Node name="DataLayer" expanded="True" selected="True" />
+            <Node name="BusinessLayer" expanded="True">
+              <Node name="Interfaces" expanded="True" />
+              <Node name="UserService.cs" selected="True" />
+            </Node>
+            <Node name="DataLayer" expanded="True" />
             <Node name="DTO" expanded="True" />
             <Node name="UI" expanded="True" />
           </Node>
