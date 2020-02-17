@@ -1,22 +1,23 @@
-﻿<Properties>
+﻿<Properties StartupConfiguration="{EB6401D1-5173-40F0-9FD4-F29FC5A57A35}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="DTO/User.cs">
     <Files>
-      <File FileName="DTO/Contact.cs" Line="12" Column="43" />
-      <File FileName="DTO/Address.cs" Line="12" Column="43" />
-      <File FileName="DTO/Person.cs" Line="14" Column="43" />
-      <File FileName="DTO/User.cs" Line="22" Column="1" />
+      <File FileName="DTO/Role.cs" Line="6" Column="25" />
+      <File FileName="DTO/User.cs" Line="14" Column="29" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="DonorsDB" expanded="True">
-            <Node name="DTO" expanded="True" />
-            <Node name="UI" selected="True" />
+            <Node name="DTO" expanded="True">
+              <Node name="User.cs" selected="True" />
+            </Node>
+            <Node name="UI" expanded="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.UI PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

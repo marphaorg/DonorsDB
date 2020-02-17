@@ -10,8 +10,8 @@ namespace DTO
         public Guid PersonID { get; set; }
         public Person Person { get; set; }
 
-        public Guid RoleID { get; set; }
-        public Role Role { get; set; }
+        public Guid UserRoleID { get; set; }
+        public UserRole UserRole { get; set; }
 
         public bool IsActive { get; set; }
         public DateTime DateCreated { get; set; }
