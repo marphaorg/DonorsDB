@@ -2,8 +2,23 @@
     ViewData["Title"] = "Campaigns Page";
 }
 
-
-<h1>Campaigns</h1>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Campaigns</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group mr-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+        </div>
+        <button type="button" id="dropdownMenuButton" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+            <span data-feather="clipboard"></span>
+            Add New
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="/Campaign/New">New Campaign</a>
+            <a class="dropdown-item" href="/Campaign/Copy">Copy Campaign</a>
+        </div>
+    </div>
+</div>
 <div class="table-responsive">
     <table class="table table-striped table-sm">
         <thead>

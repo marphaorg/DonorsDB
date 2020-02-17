@@ -14,6 +14,6 @@ namespace BusinessLayer.Interfaces
 
         Task<int> UpdateDonorProfileAsync(Donor Donor);
 
-        Task<int> DeleteDonorProfileAsync(Donor Donor);
+        Task<int> DeleteDonorProfileAsync(Guid DonorID);
     }
 }

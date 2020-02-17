@@ -22,5 +22,20 @@ namespace UI.Controllers
         {
             return View();
         }
+
+        public IActionResult New()
+        {
+            return View();
+        }
+
+        public IActionResult Copy()
+        {
+            return View();
+        }
+
+        public IActionResult Profile(Guid CampaignID)
+        {
+            return View();
+        }
     }
 }

@@ -14,6 +14,6 @@ namespace BusinessLayer.Interfaces
 
         Task<int> UpdateUserAsync(User User);
 
-        Task<int> DeleteUserAsync(User User);
+        Task<int> DeleteUserAsync(Guid UserID);
     }
 }

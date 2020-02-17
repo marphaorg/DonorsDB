@@ -13,6 +13,7 @@ namespace DataLayer
         public DbSet<User> Users { get; set; }
         public DbSet<Donor> Donors { get; set; }
         public DbSet<Donation> Donations { get; set; }
+        public DbSet<Campaign> Campaigns { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

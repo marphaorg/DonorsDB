@@ -1,32 +1,31 @@
 ﻿<Properties StartupConfiguration="{EB6401D1-5173-40F0-9FD4-F29FC5A57A35}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="UI/Views/Shared/_Layout.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="UI/Views/Donor/New.cshtml">
     <Files>
-      <File FileName="UI/Views/Shared/_Layout.cshtml" Line="66" Column="51" />
-      <File FileName="UI/Views/Campaign/Index.cshtml" Line="5" Column="1" />
+      <File FileName="UI/Views/User/New.cshtml" Line="5" Column="36" />
+      <File FileName="DTO/Person.cs" Line="1" Column="1" />
+      <File FileName="DTO/Address.cs" Line="1" Column="1" />
+      <File FileName="DTO/Contact.cs" Line="1" Column="1" />
+      <File FileName="UI/Views/Home/Index.cshtml" Line="151" Column="7" />
+      <File FileName="UI/Views/Donor/New.cshtml" Line="10" Column="101" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="DonorsDB" expanded="True">
-            <Node name="DataLayer" expanded="True" />
             <Node name="DTO" expanded="True" />
             <Node name="UI" expanded="True">
+              <Node name="Controllers" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="Campaign" expanded="True" />
-                <Node name="Report" expanded="True" />
-                <Node name="Shared" expanded="True">
-                  <Node name="_Layout.cshtml" selected="True" />
+                <Node name="Donor" expanded="True">
+                  <Node name="New.cshtml" selected="True" />
                 </Node>
+                <Node name="Home" expanded="True" />
+                <Node name="Shared" expanded="True" />
+                <Node name="User" expanded="True" />
               </Node>
               <Node name="wwwroot" expanded="True">
-                <Node name="css" expanded="True" />
-                <Node name="lib" expanded="True">
-                  <Node name="bootstrap" expanded="True">
-                    <Node name="dist" expanded="True">
-                      <Node name="css" expanded="True" />
-                    </Node>
-                  </Node>
-                </Node>
+                <Node name="js" expanded="True" />
               </Node>
             </Node>
           </Node>

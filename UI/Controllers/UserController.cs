@@ -23,5 +23,15 @@ namespace UI.Controllers
         {
             return View();
         }
+
+        public IActionResult New()
+        {
+            return View();
+        }
+
+        public IActionResult Profile(Guid UserID)
+        {
+            return View();
+        }
     }
 }

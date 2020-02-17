@@ -56,11 +56,11 @@ namespace BusinessLayer
         #endregion
 
         #region Delete
-        public async Task<int> DeleteUserAsync(User User)
+        public async Task<int> DeleteUserAsync(Guid UserID)
         {
             using (var db = new DonorsDBContext())
             {
-                var _user = await db.Users.Include(x=> x.Person).FirstOrDefaultAsync(x => x.UserID == User.UserID);
+                var _user = await db.Users.Include(x=> x.Person).FirstOrDefaultAsync(x => x.UserID == UserID);
                 if (_user != null)
                 {
                     _user.Person.IsDeleted = true;
