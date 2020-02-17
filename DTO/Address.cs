@@ -1,9 +1,11 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DTO
 {
     public class Address
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid AddressID { get; set; }
         public string Address1 { get; set; }
         public string Address2 { get; set; }

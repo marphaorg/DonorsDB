@@ -1,5 +1,5 @@
 ﻿using System;
-using DataLayer.Entities;
+using DTO;
 using Microsoft.EntityFrameworkCore;
 namespace DataLayer
 {
