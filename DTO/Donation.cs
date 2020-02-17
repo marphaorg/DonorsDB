@@ -1,20 +1,18 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace DTO
 {
     public class Donation
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid DonationID { get; set; }
         public double DonationValue { get; set; }
-
-        public Guid DonationTypeID { get; set; }
         public DonationType DonationType { get; set; }
-
         public string DonationDesc { get; set; }
-
-        public Guid DonationMethodID { get; set; }
         public DonationMethod DonationMethod { get; set; }
-
         public DateTime DateDonated { get; set; }
+
         public Guid DonorID { get; set; }
         public Donor Donor { get; set; }
 

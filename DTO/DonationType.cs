@@ -1,10 +1,11 @@
 ﻿using System;
 namespace DTO
 {
-    public class DonationType
+    public enum DonationType
     {
-        public Guid DonationTypeID { get; set; }
-        public string TypeName { get; set; }
-        public string Description { get; set; }
+        Cash = 1,
+        Computer = 2,
+        Time = 3,
+        Other = 4
     }
 }

@@ -1,10 +1,11 @@
 ﻿using System;
 namespace DTO
 {
-    public class DonationMethod
+    public enum DonationMethod
     {
-        public Guid DonationMethodID { get; set; }
-        public string MethodName { get; set; }
-        public string Description { get; set; }
+        Cash = 1,
+        Online = 2,
+        Check = 3,
+        Other = 4
     }
 }

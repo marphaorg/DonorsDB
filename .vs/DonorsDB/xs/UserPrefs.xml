@@ -1,15 +1,18 @@
 ﻿<Properties StartupConfiguration="{EB6401D1-5173-40F0-9FD4-F29FC5A57A35}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="DTO/User.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DTO/DonationMethod.cs">
     <Files>
-      <File FileName="DTO/Role.cs" Line="6" Column="25" />
-      <File FileName="DTO/User.cs" Line="14" Column="29" />
+      <File FileName="DTO/Role.cs" Line="3" Column="2" />
+      <File FileName="DTO/DonationType.cs" Line="9" Column="18" />
+      <File FileName="DTO/DonationMethod.cs" Line="9" Column="18" />
+      <File FileName="DTO/Donation.cs" Line="11" Column="9" />
+      <File FileName="DTO/Donor.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="DonorsDB" expanded="True">
             <Node name="DTO" expanded="True">
-              <Node name="User.cs" selected="True" />
+              <Node name="Donation.cs" selected="True" />
             </Node>
             <Node name="UI" expanded="True" />
           </Node>

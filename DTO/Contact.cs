@@ -1,8 +1,11 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace DTO
 {
-    public class Contact
+    public class Contacts
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid ContactID { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }

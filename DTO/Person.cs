@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DTO
 {
     public class Person
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid PersonID { get; set; }
         public string FirstName { get; set; }
         public string MiddleName { get; set; }

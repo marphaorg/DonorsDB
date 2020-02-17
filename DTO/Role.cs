@@ -1,10 +1,10 @@
 ﻿using System;
 namespace DTO
 {
-    public class UserRole
+    public enum UserRole
     {
-        public Guid UserRoleID { get; set; }
-        public string RoleName { get; set; }
-        public string Desc { get; set; }
+        Admin = 1,
+        Manager = 2,
+        User = 3,
     }
 }
