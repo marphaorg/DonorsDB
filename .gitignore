@@ -2,3 +2,4 @@ UI/bin/*
 UI/obj/*
 DTO/bin/*
 DTO/obj/*
+.vs/* 
