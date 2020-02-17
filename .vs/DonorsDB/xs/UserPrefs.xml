@@ -1,0 +1,30 @@
+﻿<Properties StartupConfiguration="{EED9C49D-2E42-47A7-97C2-3A2B77E397FE}|DonorsDBUI">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DTO/User.cs">
+    <Files>
+      <File FileName="DonorsDBWeb/Startup.cs" Line="9" Column="33" />
+      <File FileName="DTO/Contact.cs" Line="12" Column="43" />
+      <File FileName="DTO/Address.cs" Line="12" Column="43" />
+      <File FileName="DTO/Person.cs" Line="14" Column="43" />
+      <File FileName="DTO/User.cs" Line="8" Column="10" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="DonorsDB" expanded="True">
+            <Node name="DTO" expanded="True">
+              <Node name="User.cs" selected="True" />
+            </Node>
+            <Node name="UI" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.UI PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

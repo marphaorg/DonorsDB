@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace DonorsDBUI.Controllers
+namespace UI.Controllers
 {
     public class SignInController : Controller
     {

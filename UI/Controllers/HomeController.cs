@@ -5,10 +5,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using DonorsDBUI.Models;
+using UI.Models;
 using Microsoft.AspNetCore.Authorization;
 
-namespace DonorsDBUI.Controllers
+namespace UI.Controllers
 {
     public class HomeController : Controller
     {
