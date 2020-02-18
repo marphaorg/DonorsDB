@@ -44,7 +44,7 @@
                     <td><a href="@Url.Action("Profile","User", new { UserID = item.UserID })">@item.Person.DisplayName</a></td>
                     <td>@((UserRole)item.UserRole)</td>
                     <td>@HelperDateTime.GetPrettyDate(item.DateCreated.ToLocalTime())</td>
-                    <td>@HelperDateTime.GetPrettyDate(item.DateLastActive.ToLocalTime())</td>
+                    <td>@(item.DateLastActive.HasValue ? HelperDateTime.GetPrettyDate(item.DateLastActive.Value.ToLocalTime()) : "Not active")</td>
                 </tr>
             }
         </tbody>
