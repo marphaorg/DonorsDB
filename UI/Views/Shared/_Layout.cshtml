@@ -40,37 +40,37 @@
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="/">
+                            <a class="nav-link @(ViewBag.Current == "Dashboard" ? "active" : "")" href="/">
                                 <span data-feather="home"></span>
                                 Dashboard <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/Campaign">
+                            <a class="nav-link @(ViewBag.Current == "Campaign" ? "active" : "")" href="/Campaign">
                                 <span data-feather="clipboard"></span>
                                 Campaigns
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/Donation">
+                            <a class="nav-link @(ViewBag.Current == "Donation" ? "active" : "")" href="/Donation">
                                 <span data-feather="dollar-sign"></span>
                                 Donations
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/Donor">
+                            <a class="nav-link @(ViewBag.Current == "Donor" ? "active" : "")" href="/Donor">
                                 <span data-feather="users"></span>
                                 Donors
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/User">
+                            <a class="nav-link @(ViewBag.Current == "User" ? "active" : "")" href="/User">
                                 <span data-feather="bar-chart-2"></span>
                                 Users
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/Report">
+                            <a class="nav-link @(ViewBag.Current == "Report" ? "active" : "")" href="/Report">
                                 <span data-feather="layers"></span>
                                 Reports
                             </a>
@@ -118,9 +118,8 @@
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
     <script src="~/js/feather.min.js"></script>
-    <script src="~/js/Chart.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
 
     @RenderSection("Scripts", required: false)
 </body>
