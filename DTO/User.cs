@@ -24,6 +24,6 @@ namespace DTO
 
         public virtual IList<Campaign> CampaignsManaged { get; set; }
 
-        public DateTime DateLastActive { get; set; }
+        public DateTime? DateLastActive { get; set; }
     }
 }

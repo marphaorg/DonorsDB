@@ -43,7 +43,8 @@
     </div>
     <div class="col-md-8 order-md-1">
         <h4 class="mb-3">Create New User's Profile</h4>
-        <form class="needs-validation" asp-action="NewManager" method="post">
+        <form class="needs-validation" asp-action="NewUser" method="post">
+            @Html.AntiForgeryToken()
             <div class="row">
                 <div class="col-md-4 mb-3">
                     <label for="firstName">First Name<small class="text-muted">(Required)</small></label>
@@ -68,14 +69,20 @@
             <div class="row">
                 <div class="col-md-4 mb-3">
                     <label for="gender">Gender</label>
-                    <input type="text" class="form-control" id="gender" asp-for="User.Person.Gender" placeholder="" value="">
+                    <select class="custom-select" id="inputGroupSelect02" asp-for="User.Person.Gender">
+                        <option selected>Choose...</option>
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
+                        <option value="3">Other</option>
+                        <option value="4">Prefer not to say</option>
+                    </select>                    
                     <div class="invalid-feedback">
-                        Valid first name is required.
+                        Valid gender is required.
                     </div>
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="dob">DOB</label>
-                    <input type="text" class="form-control" id="dob" asp-for="User.Person.DOB" placeholder="" value="">
+                    <input type="date" class="form-control" id="dob" asp-for="User.Person.DOB" placeholder="" value="">
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="displayName">Display Name<small class="text-muted">(Required)</small></label>
@@ -88,14 +95,14 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="phone">Phone</label>
-                    <input type="text" class="form-control" id="phone" asp-for="Contact.Phone" placeholder="" value="" required>
+                    <input type="tel" class="form-control" id="phone" asp-for="Contact.Phone" placeholder="" value="" required>
                     <div class="invalid-feedback">
                         Valid phone is required.
                     </div>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="email">Email</label>
-                    <input type="text" class="form-control" id="email" asp-for="Contact.Email" placeholder="" value="">
+                    <input type="email" class="form-control" id="email" asp-for="Contact.Email" placeholder="" value="">
                 </div>
             </div>
 

@@ -4,14 +4,16 @@ using DataLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataLayer.Migrations
 {
     [DbContext(typeof(DonorsDBContext))]
-    partial class DonorsDBContextModelSnapshot : ModelSnapshot
+    [Migration("20200218225443_PeopleTableAdded")]
+    partial class PeopleTableAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -251,7 +253,7 @@ namespace DataLayer.Migrations
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("DateLastActive")
+                    b.Property<DateTime>("DateLastActive")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DateUpdated")

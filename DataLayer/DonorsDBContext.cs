@@ -10,6 +10,9 @@ namespace DataLayer
             optionsBuilder.UseSqlServer("Data Source=SQL5041.site4now.net;Initial Catalog=DB_9E3EC8_donorsdb;User Id=DB_9E3EC8_donorsdb_admin;Password=iamDb2020;");
         }
 
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Person> People { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Donor> Donors { get; set; }
         public DbSet<Donation> Donations { get; set; }

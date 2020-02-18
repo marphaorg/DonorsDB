@@ -45,6 +45,7 @@ namespace UI.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> NewUser(UserViewModel newUserModel)
         {
             newUserModel.User.Person.Addresses = new List<Address>();
@@ -73,6 +74,7 @@ namespace UI.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> NewManager(UserViewModel newManager)
         {
             newManager.User.Person.Addresses = new List<Address>();
