@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using BusinessLayer.Interfaces;
 using DataLayer;
@@ -24,6 +25,14 @@ namespace BusinessLayer
             using (var db = new DonorsDBContext())
             {
                 return await db.Campaigns.ToListAsync();
+            }
+        }
+
+        public async Task<List<Campaign>> GetCampaignsAsync(Guid CampaignManagedByID)
+        {
+            using (var db = new DonorsDBContext())
+            {
+                return await db.Campaigns.Where(x=> x.ManagedByID == CampaignManagedByID).ToListAsync();
             }
         }
         #endregion

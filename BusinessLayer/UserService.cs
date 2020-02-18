@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using BusinessLayer.Interfaces;
 using DataLayer;
 using DTO;
+using DTO.Enum;
 using Microsoft.EntityFrameworkCore;
 
 namespace BusinessLayer
@@ -15,7 +17,7 @@ namespace BusinessLayer
         {
             using (var db = new DonorsDBContext())
             {
-                return await db.Users.FirstOrDefaultAsync(x => x.UserID == UserID);
+                return await db.Users.Include(x => x.Person).FirstOrDefaultAsync(x => x.UserID == UserID);
             }
         }
 
@@ -23,7 +25,15 @@ namespace BusinessLayer
         {
             using (var db = new DonorsDBContext())
             {
-                return await db.Users.ToListAsync();
+                return await db.Users.Include(x=> x.Person).Where(x => x.IsActive).ToListAsync();
+            }
+        }
+
+        public async Task<List<User>> GetUsersAsync(UserRole UserRole)
+        {
+            using (var db = new DonorsDBContext())
+            {
+                return await db.Users.Include(x => x.Person).Where(x => x.IsActive && x.UserRole == (short)UserRole).ToListAsync();
             }
         }
         #endregion
@@ -60,7 +70,7 @@ namespace BusinessLayer
         {
             using (var db = new DonorsDBContext())
             {
-                var _user = await db.Users.Include(x=> x.Person).FirstOrDefaultAsync(x => x.UserID == UserID);
+                var _user = await db.Users.Include(x => x.Person).FirstOrDefaultAsync(x => x.UserID == UserID);
                 if (_user != null)
                 {
                     _user.Person.IsDeleted = true;

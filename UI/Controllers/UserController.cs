@@ -54,6 +54,8 @@ namespace UI.Controllers
             newUserModel.User.UserName = newUserModel.Contact.Email;
             newUserModel.User.Password = Helper.HelperPassword.HashPassword("myPassword");
             newUserModel.User.UserRole = (short)UserRole.User;
+            newUserModel.User.IsActive = true;
+            newUserModel.User.DateCreated = DateTime.UtcNow;
             await _userService.CreateUserAsync(newUserModel.User);
 
             //send email with temp password
@@ -63,29 +65,30 @@ namespace UI.Controllers
 
         public IActionResult NewManager()
         {
-            UserViewModel newUserModel = new UserViewModel();
-            newUserModel.User = new User();
-            newUserModel.Contact = new Contact();
-            newUserModel.Address = new Address();
-            return View(newUserModel);
+            UserViewModel newManager = new UserViewModel();
+            newManager.User = new User();
+            newManager.Contact = new Contact();
+            newManager.Address = new Address();
+            return View(newManager);
         }
 
         [HttpPost]
-        public async Task<ActionResult> NewManager(UserViewModel newUserModel)
+        public async Task<ActionResult> NewManager(UserViewModel newManager)
         {
-            newUserModel.User.Person.Addresses = new List<Address>();
-            newUserModel.User.Person.Addresses.Add(newUserModel.Address);
-            newUserModel.User.Person.Contacts = new List<Contact>();
-            newUserModel.User.Person.Contacts.Add(newUserModel.Contact);
-            newUserModel.User.UserName = newUserModel.Contact.Email;
-            newUserModel.User.Password = Helper.HelperPassword.HashPassword("myPassword");
-            newUserModel.User.UserRole = (short)UserRole.Manager;
-            
-            await _userService.CreateUserAsync(newUserModel.User);
+            newManager.User.Person.Addresses = new List<Address>();
+            newManager.User.Person.Addresses.Add(newManager.Address);
+            newManager.User.Person.Contacts = new List<Contact>();
+            newManager.User.Person.Contacts.Add(newManager.Contact);
+            newManager.User.UserName = newManager.Contact.Email;
+            newManager.User.Password = Helper.HelperPassword.HashPassword("myPassword");
+            newManager.User.UserRole = (short)UserRole.Manager;
+            newManager.User.IsActive = true;
+            newManager.User.DateCreated = DateTime.UtcNow;
+            await _userService.CreateUserAsync(newManager.User);
 
             //send email with temp password
 
-            return View(newUserModel);
+            return View(newManager);
         }
 
         public IActionResult Profile(Guid UserID)

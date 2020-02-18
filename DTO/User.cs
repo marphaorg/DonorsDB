@@ -23,5 +23,7 @@ namespace DTO
         public virtual IList<Donation> DonationsReviewed { get; set; }
 
         public virtual IList<Campaign> CampaignsManaged { get; set; }
+
+        public DateTime DateLastActive { get; set; }
     }
 }

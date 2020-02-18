@@ -4,14 +4,16 @@ using DataLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataLayer.Migrations
 {
     [DbContext(typeof(DonorsDBContext))]
-    partial class DonorsDBContextModelSnapshot : ModelSnapshot
+    [Migration("20200218210929_CampaignManagerManagerNullable")]
+    partial class CampaignManagerManagerNullable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,9 +69,6 @@ namespace DataLayer.Migrations
                     b.Property<Guid>("CampaignID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("CampaignCode")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CampaignTitle")
                         .HasColumnType("nvarchar(max)");
@@ -194,9 +193,6 @@ namespace DataLayer.Migrations
                     b.Property<DateTime?>("DateUpdated")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("DonorCode")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<Guid>("PersonID")
                         .HasColumnType("uniqueidentifier");
 
@@ -249,9 +245,6 @@ namespace DataLayer.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateLastActive")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DateUpdated")

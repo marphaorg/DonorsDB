@@ -8,6 +8,7 @@ namespace DTO
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid DonorID { get; set; }
+        public string DonorCode { get; set; }
         public Guid PersonID { get; set; }
         public Person Person { get; set; }
         public IList<Donation> Donations { get; set; }

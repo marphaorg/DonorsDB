@@ -9,6 +9,7 @@ namespace BusinessLayer.Interfaces
     {
         Task<Campaign> GetCampaignProfileAsync(Guid CampaignID);
         Task<List<Campaign>> GetCampaignsAsync();
+        Task<List<Campaign>> GetCampaignsAsync(Guid CampaignManagedByID);
 
         Task<int> CreateCampaignProfileAsync(Campaign Campaign);
 

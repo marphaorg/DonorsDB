@@ -24,7 +24,7 @@ namespace BusinessLayer
         {
             using (var db = new DonorsDBContext())
             {
-                return await db.Donors.ToListAsync();
+                return await db.Donors.Where(x=> !x.Person.IsDeleted).ToListAsync();
             }
         }
         #endregion
