@@ -21,5 +21,7 @@ namespace DTO
 
         public virtual IList<Donation> DonationsRecognized { get; set; }
         public virtual IList<Donation> DonationsReviewed { get; set; }
+
+        public virtual IList<Campaign> CampaignsManaged { get; set; }
     }
 }

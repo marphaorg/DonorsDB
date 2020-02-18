@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BusinessLayer.Interfaces;
 using DataLayer;
 using DTO;
+using DTO.Enum;
 using Microsoft.EntityFrameworkCore;
 
 namespace BusinessLayer

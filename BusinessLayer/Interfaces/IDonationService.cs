@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using DTO;
+using DTO.Enum;
 
 namespace BusinessLayer.Interfaces
 {

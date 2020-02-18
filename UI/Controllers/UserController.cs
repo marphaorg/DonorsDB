@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Threading.Tasks;
 using BusinessLayer;
 using BusinessLayer.Interfaces;
 using DTO;
+using DTO.Enum;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using UI.Models;
@@ -18,6 +20,7 @@ namespace UI.Controllers
         private readonly ILogger<UserController> _logger;
 
         private readonly IUserService _userService;
+        
         public UserController(ILogger<UserController> logger, IUserService userService)
         {
             _logger = logger;
@@ -32,7 +35,33 @@ namespace UI.Controllers
             return View(model);
         }
 
-        public IActionResult New()
+        public IActionResult NewUser()
+        {
+            UserViewModel newUserModel = new UserViewModel();
+            newUserModel.User = new User();            
+            newUserModel.Contact = new Contact();
+            newUserModel.Address = new Address();            
+            return View(newUserModel);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> NewUser(UserViewModel newUserModel)
+        {
+            newUserModel.User.Person.Addresses = new List<Address>();
+            newUserModel.User.Person.Addresses.Add(newUserModel.Address);
+            newUserModel.User.Person.Contacts = new List<Contact>();
+            newUserModel.User.Person.Contacts.Add(newUserModel.Contact);
+            newUserModel.User.UserName = newUserModel.Contact.Email;
+            newUserModel.User.Password = Helper.HelperPassword.HashPassword("myPassword");
+            newUserModel.User.UserRole = (short)UserRole.User;
+            await _userService.CreateUserAsync(newUserModel.User);
+
+            //send email with temp password
+
+            return View(newUserModel);
+        }
+
+        public IActionResult NewManager()
         {
             UserViewModel newUserModel = new UserViewModel();
             newUserModel.User = new User();
@@ -42,13 +71,19 @@ namespace UI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> New(UserViewModel newUserModel)
+        public async Task<ActionResult> NewManager(UserViewModel newUserModel)
         {
             newUserModel.User.Person.Addresses = new List<Address>();
             newUserModel.User.Person.Addresses.Add(newUserModel.Address);
             newUserModel.User.Person.Contacts = new List<Contact>();
             newUserModel.User.Person.Contacts.Add(newUserModel.Contact);
+            newUserModel.User.UserName = newUserModel.Contact.Email;
+            newUserModel.User.Password = Helper.HelperPassword.HashPassword("myPassword");
+            newUserModel.User.UserRole = (short)UserRole.Manager;
+            
             await _userService.CreateUserAsync(newUserModel.User);
+
+            //send email with temp password
 
             return View(newUserModel);
         }

@@ -1,5 +1,4 @@
-﻿using System;
-namespace DTO
+﻿namespace DTO.Enum
 {
     public enum UserRole
     {

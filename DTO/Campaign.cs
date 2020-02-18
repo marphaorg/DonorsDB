@@ -11,8 +11,11 @@ namespace DTO
         public string CampaignTitle { get; set; }
         public string Description { get; set; }
 
-        public Guid CreatedBYID { get; set; }
+        public Guid CreatedByID { get; set; }
         public User CreatedBy { get; set; }
+
+        public Guid ManagedByID { get; set; }
+        public User ManagedBy { get; set; }
 
         public DateTime DateCreated { get; set; }
 

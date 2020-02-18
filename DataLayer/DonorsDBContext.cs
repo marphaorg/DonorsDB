@@ -34,6 +34,12 @@ namespace DataLayer
                 .WithMany(r => r.Donations)
                 .HasForeignKey(r => r.DonationForID)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Campaign>()
+                .HasOne(r => r.ManagedBy)
+                .WithMany(r => r.CampaignsManaged)
+                .HasForeignKey(r => r.CampaignID)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
