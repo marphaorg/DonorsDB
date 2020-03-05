@@ -17,7 +17,7 @@ namespace BusinessLayer
         {
             using (var db = new DonorsDBContext())
             {
-                return await db.Users.Include(x => x.Person).FirstOrDefaultAsync(x => x.UserID == UserID);
+                return await db.Users.Include(x => x.Person).Include(x=> x.Person.Contacts).Include(x => x.Person.Addresses).FirstOrDefaultAsync(x => x.UserID == UserID);
             }
         }
 

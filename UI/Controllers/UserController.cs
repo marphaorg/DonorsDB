@@ -93,9 +93,30 @@ namespace UI.Controllers
             return View(newManager);
         }
 
-        public IActionResult Profile(Guid UserID)
+        public async Task<IActionResult> Profile(Guid UserID)
         {
-            return View();
+            UserViewModel model = new UserViewModel();
+
+            var _user = await _userService.GetUserAsync(UserID);
+
+            model.User = _user;
+            model.Contact = _user.Person.Contacts.FirstOrDefault();
+            model.Address = _user.Person.Addresses.FirstOrDefault();
+
+            return View(model);
+        }
+
+        public async Task<IActionResult> Edit(Guid UserID)
+        {
+            UserViewModel model = new UserViewModel();
+            
+            var _user = await _userService.GetUserAsync(UserID);
+
+            model.User = _user;
+            model.Contact = _user.Person.Contacts.FirstOrDefault();
+            model.Address = _user.Person.Addresses.FirstOrDefault();
+
+            return View(model);
         }
     }
 }

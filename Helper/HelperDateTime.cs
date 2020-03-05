@@ -73,5 +73,14 @@ namespace Helper
                 return  GetPrettyDate(d.Value);
             return datetime;
         }
+
+        public static string GetAge(DateTime birthday)
+        {
+            DateTime now = DateTime.Today;
+            int age = now.Year - birthday.Year;
+            if (now < birthday.AddYears(age)) age--;
+
+            return age.ToString();
+        }
     }
 }

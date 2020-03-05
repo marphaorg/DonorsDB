@@ -8,7 +8,7 @@ namespace BusinessLayer.Interfaces
 {
     public interface IUserService
     {
-        Task<User> GetUserAsync(Guid DonorID);
+        Task<User> GetUserAsync(Guid UserID);
         Task<List<User>> GetUsersAsync();
         Task<List<User>> GetUsersAsync(UserRole UserRole);
 

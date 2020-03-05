@@ -30,7 +30,6 @@ namespace UI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
             services.AddTransient<IDonorService, DonorService>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IDonationService, DonationService>();

@@ -1,4 +1,52 @@
-﻿@{
+﻿@using DTO.Enum;
+@using Helper;
+
+@model UI.Models.UserViewModel;
+
+@{
     ViewData["Title"] = "User Profile Page";
     ViewBag.Current = "User";
 }
+
+<div class="row">   
+    <div class="col order-md-1">
+        <div class="row">
+            <div class="col">
+                <h4 class="mb-3">User's Profile</h4>
+            </div>
+            <div class="col">
+                <a href="@Url.Action("Edit","User",new { UserID = Model.User.UserID })" class="btn btn-primary btn-sm float-right">Edit</a>
+            </div>
+        </div>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="abouot-tab" data-toggle="tab" href="#about" role="tab" aria-controls="about" aria-selected="true">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="campaign-tab" data-toggle="tab" href="#campaign" role="tab" aria-controls="campaign" aria-selected="false">Campaigns</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="about-tab">
+                <dl class="row mt-3">
+                    <dt class="col-3 font-weight-bold">User Name:</dt>
+                    <dd class="col-9">@Model.User.UserName</dd>
+                    <dt class="col-3 font-weight-bold">Name:</dt>
+                    <dd class="col-9">@Model.User.Person.FirstName @Model.User.Person.MiddleName @Model.User.Person.LastName (@Model.User.Person.DisplayName) </dd>
+                    <dt class="col-3 font-weight-bold">Gender:</dt>
+                    <dd class="col-9">@((Gender)Model.User.Person.Gender)</dd>
+                    <dt class="col-3 font-weight-bold">Age:</dt>
+                    <dd class="col-9">@(HelperDateTime.GetAge(Model.User.Person.DOB.Value)) years</dd>
+                    <dt class="col-3 font-weight-bold">Phone:</dt>
+                    <dd class="col-9">@Model.User.Person.Contacts.FirstOrDefault().Phone</dd>
+
+                    <dt class="col-3 font-weight-bold">Address:</dt>
+                    <dd class="col-9">@Model.FullAddress</dd>
+                   
+                </dl>
+            </div>
+            <div class="tab-pane fade" id="campaign" role="tabpanel" aria-labelledby="campaign-tab">Coming soon</div>
+        </div>
+    </div>
+</div>
+
