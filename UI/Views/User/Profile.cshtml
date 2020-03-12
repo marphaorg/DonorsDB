@@ -64,7 +64,7 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <form class="needs-validation" asp-action="Delete" method="post">
         @Html.AntiForgeryToken()
-        <input name="UserID" value="@Model.User.UserID" asp-route="UserID" />
+        <input name="UserID" value="@Model.User.UserID" asp-route="UserID" hidden/>
         <div class="modal-dialog  border-danger" role="document">
             <div class="modal-content">
                 <div class="modal-header">
