@@ -20,7 +20,7 @@ namespace UI.Controllers
         private readonly ILogger<UserController> _logger;
 
         private readonly IUserService _userService;
-        
+
         public UserController(ILogger<UserController> logger, IUserService userService)
         {
             _logger = logger;
@@ -38,9 +38,9 @@ namespace UI.Controllers
         public IActionResult NewUser()
         {
             UserViewModel newUserModel = new UserViewModel();
-            newUserModel.User = new User();            
+            newUserModel.User = new User();
             newUserModel.Contact = new Contact();
-            newUserModel.Address = new Address();            
+            newUserModel.Address = new Address();
             return View(newUserModel);
         }
 
@@ -57,11 +57,13 @@ namespace UI.Controllers
             newUserModel.User.UserRole = (short)UserRole.User;
             newUserModel.User.IsActive = true;
             newUserModel.User.DateCreated = DateTime.UtcNow;
+            newUserModel.User.DateLastActive = null;
             await _userService.CreateUserAsync(newUserModel.User);
 
             //send email with temp password
-
-            return View(newUserModel);
+                        
+            //Redirect to profile page
+            return RedirectToAction("Profile", new { UserID = newUserModel.User.UserID });
         }
 
         public IActionResult NewManager()
@@ -86,6 +88,7 @@ namespace UI.Controllers
             newManager.User.UserRole = (short)UserRole.Manager;
             newManager.User.IsActive = true;
             newManager.User.DateCreated = DateTime.UtcNow;
+            newManager.User.DateLastActive = null;
             await _userService.CreateUserAsync(newManager.User);
 
             //send email with temp password
@@ -109,7 +112,7 @@ namespace UI.Controllers
         public async Task<IActionResult> Edit(Guid UserID)
         {
             UserViewModel model = new UserViewModel();
-            
+
             var _user = await _userService.GetUserAsync(UserID);
 
             model.User = _user;
@@ -117,6 +120,33 @@ namespace UI.Controllers
             model.Address = _user.Person.Addresses.FirstOrDefault();
 
             return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit(UserViewModel model)
+        {
+            model.User.Person.Addresses = new List<Address>();
+            model.User.Person.Addresses.Add(model.Address);
+            model.User.Person.Contacts = new List<Contact>();
+            model.User.Person.Contacts.Add(model.Contact);
+            model.User.UserName = model.Contact.Email;           
+            model.User.UserRole = (short)UserRole.User;            
+            model.User.DateUpdated = DateTime.UtcNow;
+            
+            await _userService.UpdateUserAsync(model.User);
+
+            //Redirect to profile page
+            return RedirectToAction("Profile", new { UserID = model.User.UserID });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Delete(Guid UserID)
+        {
+            await _userService.DeleteUserAsync(UserID);
+            //Redirect to Index page
+            return RedirectToAction("Index");
         }
     }
 }

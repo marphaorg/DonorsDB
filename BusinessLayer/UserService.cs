@@ -17,7 +17,7 @@ namespace BusinessLayer
         {
             using (var db = new DonorsDBContext())
             {
-                return await db.Users.Include(x => x.Person).Include(x=> x.Person.Contacts).Include(x => x.Person.Addresses).FirstOrDefaultAsync(x => x.UserID == UserID);
+                return await db.Users.Include(x => x.Person).Include(x => x.Person.Contacts).Include(x => x.Person.Addresses).FirstOrDefaultAsync(x => x.UserID == UserID);
             }
         }
 
@@ -25,7 +25,7 @@ namespace BusinessLayer
         {
             using (var db = new DonorsDBContext())
             {
-                return await db.Users.Include(x=> x.Person).Where(x => x.IsActive).ToListAsync();
+                return await db.Users.Include(x => x.Person).Where(x => x.IsActive).ToListAsync();
             }
         }
 
@@ -54,10 +54,37 @@ namespace BusinessLayer
         {
             using (var db = new DonorsDBContext())
             {
-                var _user = await db.Users.FirstOrDefaultAsync(x => x.UserID == User.UserID);
+                var _user = await db.Users.Include(x => x.Person).Include(x => x.Person.Contacts).Include(x => x.Person.Addresses).FirstOrDefaultAsync(x => x.UserID == User.UserID);
                 if (_user != null)
                 {
-                    db.Users.Update(User);
+                    _user.UserName = User.UserName;
+                    _user.Person.FirstName = User.Person.FirstName;
+                    _user.Person.MiddleName = User.Person.MiddleName;
+                    _user.Person.Gender = User.Person.Gender;
+                    _user.Person.DOB = User.Person.DOB;
+                    _user.Person.DisplayName = User.Person.DisplayName;
+
+                    db.Users.Update(_user);
+
+                    var _cont = await db.Contacts.FirstOrDefaultAsync(x => x.PersonID == User.PersonID);
+                    if (_cont != null)
+                    {
+                        var __cont = User.Person.Contacts.FirstOrDefault();
+                        _cont.Phone = __cont.Phone;
+                        _cont.Email = __cont.Email;
+                        db.Contacts.Update(_cont);
+                    }
+                    var _addr = await db.Addresses.FirstOrDefaultAsync(x => x.PersonID == User.PersonID);
+                    if (_addr != null)
+                    {
+                        var __addr = User.Person.Addresses.FirstOrDefault();
+                        _addr.Address1 = __addr.Address1;
+                        _addr.Address2 = __addr.Address2;
+                        _addr.City = __addr.City;
+                        _addr.State = __addr.State;
+                        _addr.ZIPCode = __addr.ZIPCode;
+                        db.Addresses.Update(_addr);
+                    }
                     return await db.SaveChangesAsync();
                 }
             }

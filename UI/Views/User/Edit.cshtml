@@ -50,8 +50,9 @@
                 @*<button class="btn btn-primary btn-sm float-right">Edit</button>*@
             </div>
         </div>
-        <form class="needs-validation" asp-action="NewUser" method="post">
+        <form class="needs-validation" asp-action="Edit" method="post">
             @Html.AntiForgeryToken()
+            @Html.HiddenFor(x=> x.User.UserID)
             <div class="row">
                 <div class="col-md-4 mb-3">
                     <label for="firstName">First Name<small class="text-muted">(Required)</small></label>

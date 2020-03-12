@@ -8,14 +8,25 @@
     ViewBag.Current = "User";
 }
 
-<div class="row">   
+<div class="row">
     <div class="col order-md-1">
         <div class="row">
             <div class="col">
-                <h4 class="mb-3">User's Profile</h4>
+                <h5 class="mb-3">User's Profile</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h3 class="mb-3 text-info">@Model.User.Person.DisplayName</h3>
             </div>
             <div class="col">
-                <a href="@Url.Action("Edit","User",new { UserID = Model.User.UserID })" class="btn btn-primary btn-sm float-right">Edit</a>
+                <div class="btn-group float-right" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-danger btn-sm mr-2" data-toggle="modal" data-target="#exampleModal">
+                        Delete
+                    </button>
+                    <a href="@Url.Action("Edit","User",new { UserID = Model.User.UserID })" class="btn btn-primary btn-sm">Edit</a>
+                </div>
+
             </div>
         </div>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -42,11 +53,35 @@
 
                     <dt class="col-3 font-weight-bold">Address:</dt>
                     <dd class="col-9">@Model.FullAddress</dd>
-                   
+
                 </dl>
             </div>
             <div class="tab-pane fade" id="campaign" role="tabpanel" aria-labelledby="campaign-tab">Coming soon</div>
         </div>
     </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form class="needs-validation" asp-action="Delete" method="post">
+        @Html.AntiForgeryToken()
+        <input name="UserID" value="@Model.User.UserID" asp-route="UserID" />
+        <div class="modal-dialog  border-danger" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    You are going to remove the user's records from system. This action can not be undone.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Yes</button>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
 
